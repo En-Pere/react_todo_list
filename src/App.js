@@ -1,10 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import InputTask from "./components/InputTask";
+import TaskList from "./components/TaskList";
 
 function App() {
   return (
     <div className="App">
-      Test
+      <div className="title-main">
+        <h1>To Do List</h1>
+      </div>
+      <InputTask />
+      <TaskList />
     </div>
   );
 }
