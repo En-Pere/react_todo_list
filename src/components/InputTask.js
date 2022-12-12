@@ -1,18 +1,25 @@
 import { React, useState } from "react";
 import { FcPlus } from "react-icons/fc";
 import "../Styles.css/InputTask.css";
-import arrayOfTasks from "./ArrayOfTasks";
 
 function InputTask() {
-  const [text, setText] = useState([]);
-  // const [theArray, setTheArray] = useState([]);
+  const [text, setText] = useState("");
 
   const writeTask = (e) => {
     setText(e.target.value);
     console.log("text es: " + e.target.value);
   };
 
-  const saveTask = (e) => {};
+  const saveTask = (e) => {
+    //e.preventDefault();
+    const newTask = {
+      id: Math.random(),
+      text: text,
+      completed: true,
+    };
+
+    console.log(newTask);
+  };
 
   return (
     <div className="input-area">
@@ -22,7 +29,6 @@ function InputTask() {
         name="text"
         className="input-task"
         placeholder="Insert your task"
-        value={text}
         onChange={writeTask}
       />
       <button onClick={saveTask}>
