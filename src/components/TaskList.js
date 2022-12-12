@@ -5,7 +5,7 @@ import "../Styles.css/TaskList.css";
 function TaskList() {
   return (
     <div className="task-list-main">
-      <p>aqui la tarea</p>
+      <p>Aqui la 1era tarea</p>
       <FcCheckmark />
       <FcEditImage />
       <FcFullTrash />
