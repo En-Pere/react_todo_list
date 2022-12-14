@@ -1,27 +1,31 @@
-import React from "react";
+import { React, useState } from "react";
 import "../Styles.css/TareaFormulario.css";
 
 function TareaFormulario(props) {
-  const [iput, setInput] = useState("");
+  const [input, setInput] = useState("");
 
   const manejarCambio = (e) => {
-    console.log("escribiendo..");
+    setInput(e.target.value);
   };
 
   const manejarEnvio = (e) => {
+    e.preventDefault();
+
     const tareaNueva = {
-      id: "332",
-      texto: "dfsad",
+      id: Math.random(),
+      texto: input,
     };
+    props.onSubmit(tareaNueva);
   };
 
   return (
-    <form className="tarea-formulario">
+    <form className="tarea-formulario" onSubmit={manejarEnvio}>
       <input
         className="tarea-input"
         type="text"
         placeholder="inserta una tarea"
         name="texto"
+        onChange={manejarCambio}
       />
       <button className="tarea-boton">Agregar Tarea</button>
     </form>
