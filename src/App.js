@@ -1,9 +1,21 @@
 import "./App.css";
-import faviconLogo from "./favicon.ico";
-import ListaDeTareas from "./components/ListaDeTareas";
+import InputTask from "./components/InputTask";
+import { useState } from "react";
+import TaskList from "./components/TaskList";
 
 function App() {
-  return <div></div>;
+  const [tarealist, setTarealist] = useState([]);
+
+  const createList = (task) => {
+    setTarealist([...tarealist, task]);
+  };
+
+  return (
+    <div>
+      <InputTask createList={createList} />
+      <TaskList tarealist={tarealist} />
+    </div>
+  );
 }
 
 export default App;
