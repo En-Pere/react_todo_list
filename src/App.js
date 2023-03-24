@@ -4,16 +4,26 @@ import { useState } from "react";
 import TaskList from "./components/TaskList";
 
 function App() {
-  const [tarealist, setTarealist] = useState([]);
+  //Todas las tareas
+  const [toDoList, setToDoList] = useState([
+    { id: 1, taskName: "task1", status: true },
+    { id: 2, taskName: "task2", status: true },
+  ]);
 
-  const createList = (task) => {
-    setTarealist([...tarealist, task]);
+  //Tareas "variables"
+  //const [newTask, setNewTask] = useState([]);
+  
+
+  const addTask = (tarea) => {
+    let lenght = toDoList.length + 1;
+    let newEntry = { id: lenght, taskName: tarea, status: true };
+    setToDoList([...toDoList, newEntry]);
   };
 
   return (
     <div>
-      <InputTask createList={createList} />
-      <TaskList tarealist={tarealist} />
+      <InputTask addTask={addTask} />
+      <TaskList toDoList={toDoList} />
     </div>
   );
 }

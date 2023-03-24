@@ -1,13 +1,13 @@
 import React from "react";
 import { useState } from "react";
 
-function InputTask({ createList }) {
-  const [tarea, setTarea] = useState();
+function InputTask({ addTask }) {
+  const [newTask, setNewTask] = useState("");
 
   const saveTarea = (e) => {
     e.preventDefault();
-    console.log(tarea);
-    createList(tarea);
+    addTask(newTask);
+    setNewTask("");
   };
 
   return (
@@ -15,7 +15,7 @@ function InputTask({ createList }) {
       <label>Inserta una tarea</label>
       <input
         placeholder="escribe una tarea"
-        onChange={(e) => setTarea(e.target.value)}
+        onChange={(e) => setNewTask(e.target.value)}
       ></input>
       <button onClick={saveTarea}>Agregar Tarea</button>
     </form>
