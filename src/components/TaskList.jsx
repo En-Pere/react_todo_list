@@ -5,9 +5,10 @@ function TaskList({ toDoList }) {
         {toDoList.map((element, i) => {
           console.log(i);
           return (
-            <li key={i} onChange={(e) => console.log(e.target.value)}>
-              {element.taskName}
-            </li>
+            <div key={i}>
+              <li>{element.taskName}</li>
+              <button>Editar</button>
+            </div>
           );
         })}
       </ul>

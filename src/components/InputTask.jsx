@@ -1,15 +1,6 @@
 import React from "react";
-import { useState } from "react";
 
-function InputTask({ addTask }) {
-  const [newTask, setNewTask] = useState("");
-
-  const saveTarea = (e) => {
-    e.preventDefault();
-    addTask(newTask);
-    setNewTask("");
-  };
-
+function InputTask({ addTask, setNewTask }) {
   return (
     <form className="main-form">
       <label>Inserta una tarea</label>
@@ -17,7 +8,7 @@ function InputTask({ addTask }) {
         placeholder="escribe una tarea"
         onChange={(e) => setNewTask(e.target.value)}
       ></input>
-      <button onClick={saveTarea}>Agregar Tarea</button>
+      <button onClick={addTask}>Agregar Tarea</button>
     </form>
   );
 }
